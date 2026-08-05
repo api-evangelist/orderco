@@ -1,23 +1,164 @@
 aid: orderco
 name: Order.co
-description: 'Order.co is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Order.co (founded 2016 in New York as Negotiatus, rebranded to Order.co in 2021) is a
+  procurement and finance-automation platform for mid-market and enterprise buyers: guided
+  purchasing across a managed vendor catalog, purchase-order and approval workflow, accounts-
+  payable automation, spend management and virtual cards, sold into multi-location operators in
+  property management, hospitality, healthcare, retail, fitness, coworking, early childhood
+  education, wellness, technology and nonprofit. The product connects to QuickBooks Online,
+  NetSuite, Sage Intacct and Workday over API, and supports SSO through Okta and Ping Identity.
+  Order.co publishes no developer portal, no API reference and no machine-readable specification
+  for any of that - the procurement API is disclosed only to customers, and vendors receive API
+  or EDI credentials during onboarding. What it does publish anonymously are two real,
+  self-describing surfaces on its own hosts - the WordPress REST API behind www.order.co (blog,
+  customer and vendor stories, ebooks, webinars, tools, 873 FAQ records, and the first-party
+  industry and use-case taxonomies) and the Atlassian Statuspage v2 API on status.order.co - plus
+  an llms.txt and a companion page written for language models.
 url: https://raw.githubusercontent.com/api-evangelist/orderco/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: enriched
+x-tier-reason: enrichment-pipeline
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 35
+  pass: local-v1
+image: https://www.order.co/wp-content/themes/order/assets/img/logos/order.svg
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-apis: []
+- Procurement
+- Spend Management
+- Accounts Payable
+- Purchasing
+- Vendor Management
+- Payments
+- Virtual Cards
+- Finance Automation
+- United States
+apis:
+- aid: orderco:orderco-status-api
+  name: Order.co Status API
+  description: >-
+    The public, anonymous Atlassian Statuspage v2 API for the Order.co platform, served on
+    Order.co's own host status.order.co (page id ckzwmwkw4x3f) and documented by Order.co at
+    https://status.order.co/api. Eight GET endpoints return the platform status rollup, the
+    single published component (Order.co Application), open and historical incidents with their
+    dated updates, and scheduled maintenance windows. No account or credential is required. This
+    is the only first-party, self-serve, machine-readable operational API Order.co publishes.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Status
+  - Incidents
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-status-openapi.yml
+  - type: Overlay
+    url: overlays/orderco-status-overlay.yaml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: AgentSkill
+    url: skills/orderco-platform-status-monitoring.md
+- aid: orderco:orderco-content-api
+  name: Order.co Content API
+  description: >-
+    The public, anonymous WordPress REST API behind www.order.co. It is not the Order.co
+    procurement API, but it is a real first-party machine-readable surface and it carries the
+    corpus an agent actually wants: 271 blog posts, 47 pages, 36 customer stories, 6 vendor
+    stories, 21 ebooks, 10 webinars, 18 tools, 2 spend insights, 873 FAQ records and 142
+    testimonials, indexed by the first-party industry and use-case taxonomies Order.co registered
+    itself. The discovery document at /wp-json/ declares 226 routes with JSON-Schema-shaped
+    parameter definitions; only the anonymously readable content routes are modelled here.
+  humanURL: https://www.order.co/resources/
+  baseURL: https://www.order.co/wp-json
+  tags:
+  - Content
+  - Customer Stories
+  - Resources
+  - Taxonomies
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-content-openapi.yml
+  - type: Overlay
+    url: overlays/orderco-content-overlay.yaml
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+  - type: AgentSkill
+    url: skills/orderco-customer-story-research.md
+  - type: AgentSkill
+    url: skills/orderco-procurement-knowledge-retrieval.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Authentication
+  url: authentication/orderco-authentication.yml
+- type: Conventions
+  url: conventions/orderco-conventions.yml
+- type: ErrorCatalog
+  url: errors/orderco-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/orderco-lifecycle.yml
+- type: StatusPage
+  url: https://status.order.co/
+- type: Conformance
+  url: conformance/orderco-conformance.yml
+- type: DataModel
+  url: data-model/orderco-data-model.yml
+- type: DomainSecurity
+  url: security/orderco-domain-security.yml
+- type: WellKnown
+  url: well-known/orderco-well-known.yml
+- type: LLMsTxt
+  url: llms/orderco-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Examples
+  url: examples/orderco-content-discovery.json
 - type: Website
-  url: https://forgeglobal.com/orderco_stock/
+  url: https://www.order.co/
+- type: Blog
+  url: https://www.order.co/blog/
+- type: BlogRSS
+  url: https://www.order.co/blog/feed/
+- type: Login
+  url: https://app.order.co/login
+- type: GitHubOrganization
+  url: https://github.com/Negotiatus
+- type: LinkedIn
+  url: https://www.linkedin.com/company/order-company
+- type: PrivacyPolicy
+  url: https://www.order.co/privacy-policy/
+- type: TermsOfService
+  url: https://www.order.co/terms-and-conditions/
+- type: Careers
+  url: https://www.order.co/careers/
+- type: Press
+  url: https://www.order.co/newsroom/
+- type: Demo
+  url: https://www.order.co/demo/
+- type: Integrations
+  url: https://www.order.co/accounting-integrations/

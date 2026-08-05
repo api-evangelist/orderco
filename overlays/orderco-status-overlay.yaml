@@ -1,0 +1,74 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Order.co Status API
+  version: 1.0.0
+extends: openapi/orderco-status-openapi.yml
+x-provenance:
+  generated: '2026-08-04'
+  method: generated
+  source: >-
+    API Evangelist enrichment round 2026-08-04; captures our annotations over the spec generated
+    from https://status.order.co/api plus live anonymous probes of all eight v2 endpoints.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: orderco
+    x-apievangelist-surface: status
+    x-apievangelist-enrichment-round: '2026-08-04'
+    x-vendor: Atlassian Statuspage
+    x-page-id: ckzwmwkw4x3f
+    x-first-party-host: true
+    x-scope-caveat: >-
+      Operational status only. This is not the Order.co procurement, AP or spend-management API,
+      which has no public documentation of any kind.
+- target: $.info
+  update:
+    x-artifacts:
+      lifecycle: lifecycle/orderco-lifecycle.yml
+      conventions: conventions/orderco-conventions.yml
+      authentication: authentication/orderco-authentication.yml
+      errors: errors/orderco-problem-types.yml
+      data_model: data-model/orderco-data-model.yml
+      conformance: conformance/orderco-conformance.yml
+- target: $.paths['/summary.json'].get
+  update:
+    x-agent-hint: >-
+      One call that answers "is Order.co up?" - returns the rollup indicator, every component,
+      unresolved incidents and scheduled maintenance. Prefer it over polling the individual
+      endpoints.
+    x-verified: '2026-08-04'
+- target: $.paths['/status.json'].get
+  update:
+    x-agent-hint: >-
+      Cheapest liveness check on the surface (620 bytes or less). Cache-Control on the response is
+      max-age=10, so polling faster than every 10 seconds gains nothing.
+    x-observed-indicator: none
+    x-verified: '2026-08-04'
+- target: $.paths['/components.json'].get
+  update:
+    x-components:
+    - Order.co Application (app.order.co)
+    x-component-count: 1
+    x-component-caveat: >-
+      A single component covers the whole product. There is no separate component for the
+      accounting integrations, the vendor surface, or any API.
+    x-verified: '2026-08-04'
+- target: $.paths['/incidents.json'].get
+  update:
+    x-record-count: 1
+    x-record-caveat: >-
+      The only record on the page is the Statuspage default sample, "This is an example incident"
+      (id yn6q124l9xx6). No real incident had been published between page creation on 2025-03-24
+      and 2026-08-04.
+    x-verified: '2026-08-04'
+- target: $.paths['/incidents/unresolved.json'].get
+  update:
+    x-agent-hint: Poll this for an active-outage check; empty array means nothing open.
+    x-verified: '2026-08-04'
+- target: $.paths['/scheduled-maintenances.json'].get
+  update:
+    x-record-count: 0
+    x-verified: '2026-08-04'
+- target: $.components.schemas.Page
+  update:
+    x-note: Present on every response; the page id ckzwmwkw4x3f is stable across all eight endpoints.

@@ -1,0 +1,83 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  Derived from openapi/orderco-content-openapi.yml and openapi/orderco-status-openapi.yml, plus
+  the authentication block of the WordPress REST discovery document at
+  https://www.order.co/wp-json/ and live anonymous probes on 2026-08-04.
+summary: >-
+  Neither public Order.co surface requires authentication, because neither is the product. Every
+  operation in both generated OpenAPIs is an anonymous GET. The product API - the one Order.co
+  markets to accounting and ERP buyers, and the one whose credentials vendors receive at
+  onboarding - has no publicly documented authentication scheme at all: no OAuth metadata, no
+  OpenID configuration, no API-key documentation, no /.well-known/ document on any Order.co host.
+surfaces:
+- key: content
+  name: Order.co Content API
+  base_url: https://www.order.co/wp-json
+  openapi: openapi/orderco-content-openapi.yml
+  security_schemes: []
+  anonymous_read: true
+  note: >-
+    All 37 modelled operations are anonymous GETs. The discovery document advertises exactly one
+    authentication mechanism - WordPress Application Passwords (HTTP Basic), authorization
+    endpoint https://www.order.co/wp-admin/authorize-application.php. That is a site-administration
+    credential for the marketing CMS, not a developer program, and it is recorded here only so the
+    profile is complete. Write routes and the administrative namespaces return
+    HTTP 401 `rest_forbidden` anonymously (verified against /wp/v2/users and
+    /wp-abilities/v1/abilities).
+  advertised_scheme:
+    type: http
+    scheme: basic
+    name: WordPress Application Passwords
+    authorization_endpoint: https://www.order.co/wp-admin/authorize-application.php
+    first_party_developer_program: false
+- key: status
+  name: Order.co Status API
+  base_url: https://status.order.co/api/v2
+  openapi: openapi/orderco-status-openapi.yml
+  security_schemes: []
+  anonymous_read: true
+  note: >-
+    All eight Statuspage v2 endpoints returned HTTP 200 without credentials. Responses carry
+    `access-control-allow-origin: *`, so they are callable from a browser.
+product_api:
+  documented: false
+  reference_url: null
+  auth_scheme: undisclosed
+  evidence:
+  - url: https://www.order.co/accounting-integrations/
+    status: 200
+    quote: Order.co seamlessly connects to your accounting system via API - it's as simple as 1, 2, 3.
+  - url: https://developer.order.co/
+    status: 200
+    note: Wildcard DNS; resolves to the marketing site, not a developer portal.
+  - url: https://api.order.co/openapi.json
+    status: 404
+  - url: https://app.order.co/login
+    status: 200
+    note: The customer application sign-in page. Everything past it is credentialed.
+  note: >-
+    Order.co names QuickBooks Online, NetSuite, Sage Intacct and Workday as API integrations, and
+    its own vendor-onboarding material describes portal account creation plus API or EDI
+    credentials. None of that surface is publicly documented, so no authentication profile can be
+    recorded for it without inventing one.
+well_known:
+  openid_configuration: absent
+  oauth_authorization_server: absent
+  oauth_protected_resource: absent
+  probed: well-known/orderco-well-known.yml
+sso_for_the_product:
+  documented: true
+  url: https://www.order.co/sso-integrations/
+  providers:
+  - Okta
+  - Ping Identity
+  note: >-
+    Single sign-on into the Order.co application for end users. Not API authentication, and not
+    an OIDC surface a developer can discover - no issuer, no discovery document is published.
+provider_gaps:
+- Publish the authentication scheme for the customer API (key, OAuth 2.0 client credentials, or
+  otherwise) at a public URL.
+- If OAuth 2.0 or OIDC is in use, serve /.well-known/oauth-authorization-server or
+  /.well-known/openid-configuration so the surface is machine-discoverable.
+- Publish the vendor API credential model instead of disclosing it only during onboarding.

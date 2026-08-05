@@ -1,0 +1,173 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  Live probes of https://www.order.co/wp-json/ and https://status.order.co/api/v2/ on 2026-08-04,
+  including full response-header capture, plus the endpoint reference Order.co serves at
+  https://status.order.co/api.
+summary: >-
+  Order.co publishes two public, anonymous, machine-readable surfaces and neither is the
+  procurement API: the WordPress REST API behind the marketing site (www.order.co/wp-json - blog,
+  customer and vendor stories, ebooks, webinars, tools, 873 FAQ records, and the first-party
+  `industry` and `use_case` taxonomies) and the Atlassian Statuspage v2 API on status.order.co.
+  The conventions below were verified against live responses and headers. There is no idempotency
+  contract, no rate-limit signalling, no request-id header exposed to callers, and no RFC 9457
+  problem envelope on either surface - absences recorded honestly rather than assumed.
+surfaces:
+- key: content
+  name: Order.co Content API
+  base_url: https://www.order.co/wp-json
+  openapi: openapi/orderco-content-openapi.yml
+  style: WordPress REST API (wp/v2 namespace) plus a first-party cn/v1 theme namespace
+  hosting: Kinsta origin behind Cloudflare
+- key: status
+  name: Order.co Status API
+  base_url: https://status.order.co/api/v2
+  openapi: openapi/orderco-status-openapi.yml
+  style: Atlassian Statuspage v2
+  hosting: AtlassianEdge
+authentication:
+  style: none for every published operation
+  content_api:
+    anonymous_read: true
+    write: >-
+      Write routes and the administrative namespaces exist on the host but return HTTP 401 with
+      code `rest_forbidden` anonymously. WordPress Application Passwords (HTTP Basic) are the only
+      mechanism advertised in the discovery document's authentication block, authorization
+      endpoint https://www.order.co/wp-admin/authorize-application.php. That is a CMS
+      administration credential, not a developer program.
+  status_api:
+    anonymous_read: true
+    write: not exposed
+  product:
+    note: >-
+      app.order.co is the customer application sign-in. SSO into it is offered through Okta and
+      Ping Identity (https://www.order.co/sso-integrations/). None of it is an API authentication
+      surface a developer can discover.
+  detail: authentication/orderco-authentication.yml
+pagination:
+  content_api:
+    style: page-number
+    params:
+      page:
+        default: 1
+        note: 1-indexed.
+      per_page:
+        default: 10
+        minimum: 1
+        maximum: 100
+        note: >-
+          Enforced server-side; per_page=999 returns HTTP 400 rest_invalid_param with the message
+          "per_page must be between 1 (inclusive) and 100 (inclusive)".
+      offset:
+        note: Available on post-type collections as an alternative to page.
+    response_headers:
+    - name: X-WP-Total
+      description: Total records matching the query. Observed 271 on /wp/v2/posts.
+    - name: X-WP-TotalPages
+      description: Total pages at the current per_page. Observed 136 at per_page=2.
+    link_header:
+      rfc: RFC 8288
+      observed: '<https://www.order.co/wp-json/wp/v2/posts?per_page=2&page=2>; rel="next"'
+    cors_exposed_headers: [X-WP-Total, X-WP-TotalPages, Link]
+  status_api:
+    style: none
+    note: Every Statuspage v2 endpoint returns a complete collection. There are no paging parameters.
+  cn_namespace:
+    style: none
+    note: >-
+      /cn/v1/resources returns the entire resource corpus - 8.9 MB at capture time - in one
+      unpaginated response. Use the wp/v2 routes instead.
+field_selection:
+  content_api:
+    param: _fields
+    example: /wp/v2/customer_story?per_page=3&_fields=id,slug,title,link,date,industry
+    note: >-
+      Verified working; it is the difference between an 11 KB and an 800 byte response. Also
+      supported - `_embed` to inline linked terms, media and authors, and `context=view|embed`.
+  status_api:
+    supported: false
+filtering_and_search:
+  content_api:
+    full_text: /wp/v2/search?search=<term> (cross-type; 306 hits for "procurement")
+    per_collection:
+    - search
+    - slug
+    - include
+    - exclude
+    - order
+    - orderby
+    - after
+    - before
+    - modified_after
+    - modified_before
+    taxonomy_filters:
+      categories: post, ebook, spend_insight, tool, webinar
+      industry: ebook, customer_story, vendor_story, spend_insight
+      use_case: customer_story
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    Both published surfaces are read-only, so idempotency is a property of the HTTP method and
+    nothing more. No Idempotency-Key header is accepted or documented anywhere on either surface,
+    and the product API - where write idempotency would actually matter for purchase orders and
+    payments - is undocumented.
+rate_limiting:
+  signalled: false
+  headers: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any probed response from
+    either host, and no rate-limit policy is documented. Cloudflare sits in front of
+    www.order.co, so unsignalled throttling should still be expected under load.
+caching:
+  content_api:
+    observed_headers: [cf-cache-status, ki-cache-type, x-kinsta-cache, vary]
+    note: >-
+      wp-json responses were served DYNAMIC/BYPASS at capture time - the REST API is not edge
+      cached. `x-robots-tag: noindex` is set on API responses.
+    etag: false
+  status_api:
+    cache_control: max-age=10, public, s-maxage=10, stale-while-revalidate=20, stale-if-error=3600
+    etag: true
+    note: >-
+      Weak ETags are returned and exposed via access-control-expose-headers. Polling faster than
+      every 10 seconds gains nothing.
+tracing:
+  content_api:
+    request_id_header: none
+    note: Cloudflare's cf-ray is present but is an edge trace, not an application request id.
+  status_api:
+    request_id_header: atl-request-id
+    trace_header: atl-traceid
+    timing_header: server-timing
+    note: Atlassian-issued identifiers. Useful for a vendor support ticket, not an Order.co one.
+errors:
+  envelope: WordPress REST error object (`code`, `message`, `data.status`)
+  rfc9457: false
+  content_type: application/json
+  detail: errors/orderco-problem-types.yml
+  note: >-
+    The status API returns bare HTTP status codes; no error body was observed because every
+    probed path succeeded.
+media_types:
+  request: not applicable (no write operations)
+  response: application/json; charset=UTF-8
+versioning:
+  detail: lifecycle/orderco-lifecycle.yml
+  note: URI-path versioning inherited from each platform (wp/v2, Statuspage v2). No Order.co policy.
+security_headers:
+  www.order.co:
+    strict_transport_security: max-age=2592000; includeSubDomains
+    x_content_type_options: nosniff
+  status.order.co:
+    strict_transport_security: max-age=259200
+    x_content_type_options: nosniff
+    x_xss_protection: 1; mode=block
+    referrer_policy: strict-origin-when-cross-origin
+  detail: security/orderco-domain-security.yml
+provider_gaps:
+- Signal rate limits with RateLimit-* headers on the public surfaces.
+- Return an application request id callers can quote in a support ticket.
+- Paginate /cn/v1/resources or retire it in favour of the wp/v2 routes.
+- Document an idempotency contract for the write operations of the customer API, where duplicate
+  purchase orders and duplicate payments are the real risk.

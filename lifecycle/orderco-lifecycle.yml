@@ -1,0 +1,95 @@
+generated: '2026-08-04'
+method: searched
+source: >-
+  Live probes of https://status.order.co/, https://status.order.co/api, https://www.order.co/
+  and its sitemap, robots.txt and llms.txt, plus the WordPress REST discovery document at
+  https://www.order.co/wp-json/, on 2026-08-04.
+summary: >-
+  Order.co publishes an operational status page and nothing else in the lifecycle family. There
+  is no versioning policy, no deprecation policy, no Sunset/Deprecation header support, no
+  published SLA and no changelog anywhere on www.order.co - the sitemap carries 998 URLs and not
+  one of them is a developer, API, changelog or release-notes page. The two APIs recorded in this
+  profile version themselves only by virtue of the platforms they run on: WordPress `wp/v2` and
+  Atlassian Statuspage `v2`.
+versioning:
+  scheme: uri-path
+  surfaces:
+  - key: content
+    base_url: https://www.order.co/wp-json
+    current: wp/v2
+    note: >-
+      WordPress core namespace. The version moves when WordPress moves, not when Order.co decides;
+      Order.co has no say in the cadence and publishes no statement about it. Fourteen namespaces
+      are advertised in the discovery document, each independently versioned by its plugin.
+  - key: status
+    base_url: https://status.order.co/api/v2
+    current: v2
+    note: Atlassian Statuspage v2. Vendor-owned versioning; Order.co publishes no statement about it.
+  policy_url: null
+  policy_published: false
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset or Deprecation header on any probed response, and no
+    deprecated operations in either generated OpenAPI. Absence recorded, not assumed - response
+    headers were captured for https://www.order.co/wp-json/wp/v2/posts and
+    https://status.order.co/api/v2/summary.json on 2026-08-04 and neither carries them.
+deprecated_operations: []
+status_page:
+  url: https://status.order.co/
+  vendor: Atlassian Statuspage
+  page_id: ckzwmwkw4x3f
+  api: https://status.order.co/api/v2
+  api_reference: https://status.order.co/api
+  openapi: openapi/orderco-status-openapi.yml
+  authentication: none
+  created: '2025-03-24'
+  components:
+  - name: Order.co Application (app.order.co)
+    id: 729hctp265l8
+    status_at_capture: operational
+  incident_history:
+    records: 1
+    note: >-
+      The single record is the Statuspage default sample, "This is an example incident"
+      (id yn6q124l9xx6, created 2025-03-20, resolved 2025-03-20). No real incident had been
+      published as of 2026-08-04, so the page has no track record to read.
+  subscription_channels:
+  - email
+  - Slack
+  - Microsoft Teams
+  - Atom
+  - RSS
+  generic_http_webhook: false
+  webhook_note: >-
+    Unlike most Statuspage instances, this page does not expose the generic
+    POST /subscriptions/webhook.json option. The only machine-consumable subscriptions are the
+    Microsoft Teams channel webhook (POST /subscriptions/teams.json), Slack OAuth, and the feeds.
+  feeds:
+  - url: https://status.order.co/history.atom
+    format: Atom 1.0
+  - url: https://status.order.co/history.rss
+    format: RSS 2.0
+sla:
+  url: null
+  published: false
+  note: >-
+    No public SLA, uptime commitment or support-response target. Terms are at
+    https://www.order.co/terms-and-conditions/ and contain no uptime figure.
+changelog:
+  url: null
+  published: false
+  note: >-
+    No changelog, release notes or "what's new" page. The nearest dated first-party feeds are the
+    blog (https://www.order.co/blog/feed/) and the newsroom
+    (https://www.order.co/newsroom/, also readable as JSON at
+    https://www.order.co/wp-json/cn/v1/press-releases), neither of which is a product changelog.
+provider_gaps:
+- Publish a versioning and deprecation policy for the customer-facing API.
+- Emit RFC 8594 Sunset and Deprecation headers when an endpoint is retired.
+- Publish a product changelog with dates.
+- Break the status page into components that reflect what customers actually integrate with - at
+  minimum the API and the accounting integrations, not one component for the whole product.

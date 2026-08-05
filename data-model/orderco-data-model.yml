@@ -1,0 +1,216 @@
+generated: '2026-08-04'
+method: derived
+source: >-
+  Derived from openapi/orderco-content-openapi.yml and openapi/orderco-status-openapi.yml, and
+  from the live /wp/v2/types and /wp/v2/taxonomies responses saved as
+  examples/orderco-content-types.json and examples/orderco-content-taxonomies.json.
+summary: >-
+  Two disjoint entity graphs, one per published surface. The content graph is the interesting
+  one: Order.co registered eight custom WordPress post types and two custom taxonomies, and those
+  taxonomies - `industry` and `use_case` - are the join keys that make the marketing corpus
+  queryable as data rather than as pages. The status graph is the standard Statuspage shape. The
+  procurement domain that actually matters (purchase orders, vendors, invoices, virtual cards,
+  approvals, budgets) has no public contract, so no entities from it are modelled here; inventing
+  them would be fabrication.
+surfaces:
+- key: content
+  openapi: openapi/orderco-content-openapi.yml
+  id_style: integer WordPress post/term ids, unique per type
+- key: status
+  openapi: openapi/orderco-status-openapi.yml
+  id_style: opaque 12-character Statuspage identifiers (e.g. ckzwmwkw4x3f, 729hctp265l8)
+entities:
+- name: Post
+  surface: content
+  rest_base: posts
+  operations: [listPosts, getPosts]
+  count_at_capture: 271
+  description: Blog articles on procurement, AP automation, spend management and finance.
+- name: Page
+  surface: content
+  rest_base: pages
+  operations: [listPages, getPages]
+  count_at_capture: 47
+- name: CustomerStory
+  surface: content
+  rest_base: customer_story
+  operations: [listCustomerStory, getCustomerStory]
+  count_at_capture: 36
+  description: Published buyer case studies, classified by industry and use case.
+- name: VendorStory
+  surface: content
+  rest_base: vendor_story
+  operations: [listVendorStory, getVendorStory]
+  count_at_capture: 6
+  description: Supplier-side case studies, classified by industry.
+- name: Ebook
+  surface: content
+  rest_base: ebook
+  operations: [listEbook, getEbook]
+  count_at_capture: 21
+- name: Webinar
+  surface: content
+  rest_base: webinar
+  operations: [listWebinar, getWebinar]
+  count_at_capture: 10
+- name: Tool
+  surface: content
+  rest_base: tool
+  operations: [listTool, getTool]
+  count_at_capture: 18
+  description: Free calculators and assessments.
+- name: SpendInsight
+  surface: content
+  rest_base: spend_insight
+  operations: [listSpendInsight, getSpendInsight]
+  count_at_capture: 2
+- name: Faq
+  surface: content
+  rest_base: faqs
+  operations: [listFaqs, getFaqs]
+  count_at_capture: 873
+  description: >-
+    Discrete question/answer records reused across the site. The densest structured content
+    Order.co publishes and the highest-value route on the API for a retrieval agent.
+- name: Testimonial
+  surface: content
+  rest_base: testimonials
+  operations: [listTestimonials, getTestimonials]
+  count_at_capture: 142
+- name: Media
+  surface: content
+  rest_base: media
+  operations: [listMedia, getMedia]
+  count_at_capture: 2648
+- name: Category
+  surface: content
+  rest_base: categories
+  operations: [listCategories, getCategories]
+  count_at_capture: 10
+  taxonomy: true
+- name: Tag
+  surface: content
+  rest_base: tags
+  operations: [listTags, getTags]
+  count_at_capture: 0
+  taxonomy: true
+  note: Registered but unused.
+- name: Industry
+  surface: content
+  rest_base: industry
+  operations: [listIndustry, getIndustry]
+  count_at_capture: 11
+  taxonomy: true
+  first_party: true
+  description: >-
+    Order.co's own industry vocabulary - property management, hospitality, healthcare, retail,
+    fitness, coworking, early childhood education, wellness, technology, nonprofit, cannabis.
+- name: UseCase
+  surface: content
+  rest_base: use_case
+  operations: [listUseCase, getUseCase]
+  count_at_capture: 6
+  taxonomy: true
+  first_party: true
+- name: Page
+  surface: status
+  description: Statuspage identity object, embedded in every status response.
+  operations: [getSummary, getStatus, listComponents, listIncidents]
+- name: Component
+  surface: status
+  operations: [listComponents, getSummary]
+  count_at_capture: 1
+- name: Incident
+  surface: status
+  operations: [listIncidents, listUnresolvedIncidents, getSummary]
+  count_at_capture: 1
+  note: The one record is the Statuspage default sample incident.
+- name: IncidentUpdate
+  surface: status
+  operations: [listIncidents]
+- name: ScheduledMaintenance
+  surface: status
+  operations: [listScheduledMaintenances, listActiveScheduledMaintenances, listUpcomingScheduledMaintenances]
+  count_at_capture: 0
+relationships:
+- from: Post
+  to: Category
+  type: has_many
+  via: categories
+- from: Post
+  to: Tag
+  type: has_many
+  via: tags
+- from: CustomerStory
+  to: Industry
+  type: has_many
+  via: industry
+- from: CustomerStory
+  to: UseCase
+  type: has_many
+  via: use_case
+- from: VendorStory
+  to: Industry
+  type: has_many
+  via: industry
+- from: Ebook
+  to: Industry
+  type: has_many
+  via: industry
+- from: Ebook
+  to: Category
+  type: has_many
+  via: category
+- from: SpendInsight
+  to: Industry
+  type: has_many
+  via: industry
+- from: SpendInsight
+  to: Category
+  type: has_many
+  via: category
+- from: Tool
+  to: Category
+  type: has_many
+  via: category
+- from: Webinar
+  to: Category
+  type: has_many
+  via: category
+- from: Post
+  to: Media
+  type: has_one
+  via: featured_media
+- from: Incident
+  to: IncidentUpdate
+  type: has_many
+  via: incident_updates
+- from: Incident
+  to: Component
+  type: has_many
+  via: components
+- from: IncidentUpdate
+  to: Incident
+  type: belongs_to
+  via: incident_id
+- from: Component
+  to: Page
+  type: belongs_to
+  via: page_id
+- from: ScheduledMaintenance
+  to: Component
+  type: has_many
+  via: components
+traversal_notes:
+- >-
+  `_embed=1` inlines linked terms, media and authors in one call, avoiding the id-resolution
+  round trips the relationships above would otherwise require.
+- >-
+  The `industry` taxonomy is the only vocabulary that spans four content types, so it is the
+  practical entry point for "everything Order.co has published about hospitality".
+not_modelled:
+  procurement_domain:
+    entities_named_in_marketing: [purchase order, vendor, catalog, invoice, payment, virtual card, approval, budget, spend]
+    note: >-
+      Named on www.order.co product pages but never given a public schema, field list or
+      identifier format. Modelling them would be fabrication, so they are recorded as absent.

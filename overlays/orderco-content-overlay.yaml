@@ -1,0 +1,112 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Order.co Content API
+  version: 1.0.0
+extends: openapi/orderco-content-openapi.yml
+x-provenance:
+  generated: '2026-08-04'
+  method: generated
+  source: >-
+    API Evangelist enrichment round 2026-08-04; captures our annotations over the spec generated
+    from the WordPress REST discovery document at https://www.order.co/wp-json/ plus live
+    anonymous probes on 2026-08-04.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: orderco
+    x-apievangelist-surface: content
+    x-apievangelist-enrichment-round: '2026-08-04'
+    x-platform: WordPress REST API (wp/v2), hosted on Kinsta behind Cloudflare
+    x-first-party-host: true
+    x-scope-caveat: >-
+      Marketing and resource content only. This is not the Order.co procurement, AP or
+      spend-management API. Order.co markets API connectivity to QuickBooks Online, NetSuite,
+      Sage Intacct and Workday and issues vendor API/EDI credentials at onboarding, but publishes
+      no reference, no portal and no machine-readable spec for any of it.
+- target: $.info
+  update:
+    x-artifacts:
+      lifecycle: lifecycle/orderco-lifecycle.yml
+      conventions: conventions/orderco-conventions.yml
+      authentication: authentication/orderco-authentication.yml
+      errors: errors/orderco-problem-types.yml
+      data_model: data-model/orderco-data-model.yml
+      conformance: conformance/orderco-conformance.yml
+      llms: llms/orderco-llms.txt
+- target: $.info
+  update:
+    x-excluded-namespaces:
+      note: >-
+        The discovery document advertises 14 namespaces and 226 routes. Only the anonymously
+        readable content routes are modelled here. These namespaces are plugin/administrative and
+        answer 401 rest_forbidden (or require an editor session) to the public.
+      namespaces:
+      - redirection/v1
+      - post-smtp/v1
+      - post-smtp/v2
+      - psd/v1
+      - leadin/v1
+      - find-my-blocks/v1
+      - duplicate-post/v1
+      - regenerate-thumbnails/v1
+      - wp-abilities/v1
+      - wp-site-health/v1
+      - wp-block-editor/v1
+      - oembed/1.0
+- target: $.paths['/wp/v2/posts'].get
+  update:
+    x-record-count: 271
+    x-agent-hint: >-
+      The Order.co blog. Use _fields to trim the payload - a single unfiltered post record is
+      roughly 70 KB because content.rendered carries the full HTML.
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/faqs'].get
+  update:
+    x-record-count: 873
+    x-agent-hint: >-
+      The single densest structured surface Order.co publishes: 873 discrete question/answer
+      records. This is the highest-value route on the API for a retrieval agent.
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/customer_story'].get
+  update:
+    x-record-count: 36
+    x-taxonomies: [industry, use_case]
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/vendor_story'].get
+  update:
+    x-record-count: 6
+    x-taxonomies: [industry]
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/testimonials'].get
+  update:
+    x-record-count: 142
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/industry'].get
+  update:
+    x-record-count: 11
+    x-agent-hint: >-
+      First-party taxonomy. The eleven terms are the industries Order.co sells into and they are
+      the join key across customer stories, vendor stories, ebooks and spend insights.
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/use_case'].get
+  update:
+    x-record-count: 6
+    x-verified: '2026-08-04'
+- target: $.paths['/wp/v2/tags'].get
+  update:
+    x-record-count: 0
+    x-note: The post_tag taxonomy is registered but unused; X-WP-Total was 0.
+    x-verified: '2026-08-04'
+- target: $.paths['/cn/v1/resources'].get
+  update:
+    x-response-bytes: 8871210
+    x-agent-warning: >-
+      8.9 MB unpaginated. It duplicates content already reachable, paged, through the wp/v2
+      routes. Prefer those.
+    x-verified: '2026-08-04'
+- target: $.paths['/cn/v1/press-releases'].get
+  update:
+    x-agent-warning: >-
+      Returns rendered HTML inside a JSON string rather than structured records. Not usefully
+      machine-readable despite being served as JSON.
+    x-verified: '2026-08-04'

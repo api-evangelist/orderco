@@ -1,0 +1,82 @@
+# Order.co
+
+
+> Order.co is an AI procurement and finance automation platform that streamlines purchasing, accounts payable, and spend management for mid-market and enterprise businesses. It helps procurement, finance, accounting, and operations teams achieve cost savings, compliance, and real-time spend visibility across the entire procurement lifecycle.
+
+
+Order.co serves multi-location businesses across a variety of industries, including retail, hospitality, healthcare, property management, fitness, coworking, early childhood education, wellness, and nonprofits. The platform integrates with all accounting systems and ERPs.
+
+
+## Products
+
+
+- [Procurement Software](https://www.order.co/procurement-software/): Streamlines the entire purchasing lifecycle with automated workflows, approval controls, and compliance tools
+- [Accounts Payable Automation](https://www.order.co/accounts-payable-software/): Eliminates manual invoice processing and payment workflows with automated AP tools
+- [Spend Management Software](https://www.order.co/spend-management-software/): Real-time visibility and control over company spending
+- [Virtual Cards](https://www.order.co/virtual-cards/): Secure digital payment cards for vendor payments with built-in spend controls
+- [Order.co AI](https://www.order.co/ai/): AI-powered automation for product catalogs, supplier recommendations, approvals, and order fulfillment
+- [Working Capital Management](https://www.order.co/working-capital-management/): Optimize cash flow with better payment timing and spend controls
+
+
+## Solutions by Use Case
+
+
+- [Scale Operations](https://www.order.co/scale-operations/): Automated, scalable workflows for growing businesses managing procurement and accounts payable processes across multiple locations
+- [Standardize Processes](https://www.order.co/standardize-processes/): Enforce consistent purchasing policies and workflows company-wide
+- [Control Spend](https://www.order.co/control-spend/): Pre-purchase controls and real-time spend tracking to prevent budget overruns
+- [Save on Products](https://www.order.co/save-on-products/): Strategic sourcing and supplier management to reduce product costs
+
+
+
+
+## Industries
+
+
+- [Property Management](https://www.order.co/property-management/): Procurement solutions for residential property management companies
+- [Hotels & Resorts](https://www.order.co/hotels-resorts/): Hospitality-focused purchasing and vendor management
+- [Vacation Rentals](https://www.order.co/vacation-rentals/): Procurement tools for vacation rental operators
+- [Hospitality](https://www.order.co/hospitality/): Solutions for restaurants, hotels, and hospitality businesses
+- [Healthcare](https://www.order.co/healthcare/): Medical practice and healthcare facility procurement software
+- [Early Childhood Education](https://www.order.co/early-childhood-education/): Purchasing solutions for childcare and education centers
+- [Fitness](https://www.order.co/fitness/): Procurement for gyms, studios, and fitness facilities
+- [Coworking](https://www.order.co/coworking/): Shared workspace purchasing and spend management
+- [Retail](https://www.order.co/retail/): Multi-location retail operations and supplies purchasing
+- [Wellness](https://www.order.co/wellness/): Solutions for spas, medspas, and wellness centers
+- [Technology](https://www.order.co/technology/): Tech company procurement and vendor management
+- [Nonprofit](https://www.order.co/nonprofit/): Grant compliance, budget tracking, and purchasing controls for nonprofits
+
+
+
+
+## Integrations
+
+
+- [Accounting Integrations](https://www.order.co/accounting-integrations/): Connects with QuickBooks, Xero, NetSuite, and other accounting platforms
+- [Workday Procurement Integration](https://www.order.co/workday-procurement-integration/): Native integration with Workday for enterprise procurement
+- [SSO Integrations](https://www.order.co/sso-integrations/): Single sign-on support for enterprise security
+
+
+## Resources
+
+
+- [Blog](https://www.order.co/blog/): Articles on procurement, AP automation, vendor management, and finance best practices
+- [Resources Hub](https://www.order.co/resources/): Guides, ebooks, webinars, and tools for procurement professionals
+- [Webinars](https://www.order.co/webinars/): On-demand and live educational webinars on procurement topics
+- [Ebooks](https://www.order.co/ebooks/): Downloadable guides on procurement and spend management strategies
+- [Tools](https://www.order.co/tools/): Free calculators and assessment tools for procurement optimization
+- [Customer Success Stories](https://www.order.co/customer-success-stories/): Case studies showing real-world results and ROI
+- [Vendor Success Stories](https://www.order.co/vendor-success-stories/): How suppliers benefit from the Order.co platform
+
+
+## Company
+
+
+- [Careers](https://www.order.co/careers/): Open positions and company culture at Order.co
+- [Newsroom](https://www.order.co/newsroom/): Press releases, media coverage, and company announcements
+
+
+## Policies
+
+
+- [Privacy Policy](https://www.order.co/privacy-policy/): How Order.co collects, uses, and protects customer data
+- [Terms and Conditions](https://www.order.co/terms-and-conditions/): Legal terms governing use of the Order.co platform

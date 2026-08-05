@@ -1,0 +1,106 @@
+generated: '2026-08-04'
+method: probed
+source: Live probes of every Order.co host on 2026-08-04.
+summary: >-
+  Order.co serves no /.well-known/ document on any of its hosts. Every path probed on
+  www.order.co (WordPress on Kinsta behind Cloudflare), app.order.co (the customer application,
+  Rails) and api.order.co returned HTTP 404. Note that api.order.co, developer.order.co and
+  docs.order.co are wildcard DNS records that answer with the marketing site, not real API or
+  docs hosts - so a 404 there is the WordPress 404 page, not an API telling you the document is
+  missing. status.order.co is an Atlassian Statuspage instance and was probed separately; it too
+  returned 404 for security.txt, so not even the vendor document is present.
+first_party_documents: 0
+hosts:
+- host: https://www.order.co
+  note: Marketing site and resource hub; WordPress on Kinsta behind Cloudflare.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://app.order.co
+  note: The Order.co customer application sign-in host (Rails). Everything past it is credentialed.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.order.co
+  note: >-
+    Wildcard DNS to the marketing site; not an API host. developer.order.co and docs.order.co
+    behave identically. Confirmed by fetching / on each and receiving the www.order.co HTML.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+adjacent_discovery_documents:
+- path: /llms.txt
+  host: https://www.order.co
+  status: 200
+  content_type: text/plain; charset=UTF-8
+  bytes: 5253
+  file: llms/orderco-llms.txt
+  note: Not a /.well-known/ document, but it is a real machine-readable discovery surface.
+- path: /robots.txt
+  host: https://www.order.co
+  status: 200
+  note: 'Disallows only /wp-admin/; advertises the sitemap. No API paths are disallowed.'
+- path: /sitemap.xml
+  host: https://www.order.co
+  status: 200
+  note: 998 URLs, none of them a developer, API, changelog or security page.
+- path: /wp-json/
+  host: https://www.order.co
+  status: 200
+  bytes: 319420
+  file: examples/orderco-content-discovery.json
+  note: >-
+    The WordPress REST discovery document - 226 routes with JSON-Schema-shaped parameter
+    definitions. The richest machine-readable artifact Order.co serves.
+- path: /api
+  host: https://status.order.co
+  status: 200
+  note: Statuspage v2 endpoint reference served on Order.co's own status host.
+provider_gaps:
+- Publish /.well-known/security.txt (RFC 9116) with a disclosure contact and policy URL.
+- Publish /.well-known/api-catalog (RFC 9727) pointing at the customer API's documentation.
+- Stop wildcarding api.order.co, developer.order.co and docs.order.co onto the marketing site -
+  a 200 that is not the thing the hostname promises is worse than an NXDOMAIN for both agents
+  and integrators.
