@@ -1,0 +1,21 @@
+{
+  "repo": "orderco",
+  "feeds": [
+    {
+      "source": "https://www.order.co/",
+      "feed_url": "https://www.order.co/feed/",
+      "title": "",
+      "saved": 3,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.order.co/blog/",
+      "feed_url": "https://www.order.co/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 3,
+  "fetched": "2026-08-06T14:08:46Z"
+}
