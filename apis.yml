@@ -41,26 +41,16 @@ tags:
 - Finance Automation
 - United States
 apis:
-- aid: orderco:orderco-status-api
-  name: Order.co Status API
-  description: >-
-    The public, anonymous Atlassian Statuspage v2 API for the Order.co platform, served on
-    Order.co's own host status.order.co (page id ckzwmwkw4x3f) and documented by Order.co at
-    https://status.order.co/api. Eight GET endpoints return the platform status rollup, the
-    single published component (Order.co Application), open and historical incidents with their
-    dated updates, and scheduled maintenance windows. No account or credential is required. This
-    is the only first-party, self-serve, machine-readable operational API Order.co publishes.
+- aid: orderco:orderco-components-api
+  name: Order.co Components API
+  description: The individual services Order.co reports health for.
   humanURL: https://status.order.co/
   baseURL: https://status.order.co/api/v2
   tags:
-  - Status
-  - Incidents
-  - Operations
+  - Components
   properties:
   - type: OpenAPI
-    url: openapi/orderco-status-openapi.yml
-  - type: Overlay
-    url: overlays/orderco-status-overlay.yaml
+    url: openapi/orderco-components-api-openapi.yml
   - type: APIReference
     url: https://status.order.co/api
   - type: StatusPage
@@ -71,31 +61,6 @@ apis:
     url: examples/orderco-status-components.json
   - type: Examples
     url: examples/orderco-status-incidents.json
-  - type: AgentSkill
-    url: skills/orderco-platform-status-monitoring.md
-- aid: orderco:orderco-content-api
-  name: Order.co Content API
-  description: >-
-    The public, anonymous WordPress REST API behind www.order.co. It is not the Order.co
-    procurement API, but it is a real first-party machine-readable surface and it carries the
-    corpus an agent actually wants: 271 blog posts, 47 pages, 36 customer stories, 6 vendor
-    stories, 21 ebooks, 10 webinars, 18 tools, 2 spend insights, 873 FAQ records and 142
-    testimonials, indexed by the first-party industry and use-case taxonomies Order.co registered
-    itself. The discovery document at /wp-json/ declares 226 routes with JSON-Schema-shaped
-    parameter definitions; only the anonymously readable content routes are modelled here.
-  humanURL: https://www.order.co/resources/
-  baseURL: https://www.order.co/wp-json
-  tags:
-  - Content
-  - Customer Stories
-  - Resources
-  - Taxonomies
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/orderco-content-openapi.yml
-  - type: Overlay
-    url: overlays/orderco-content-overlay.yaml
   - type: Examples
     url: examples/orderco-content-discovery.json
   - type: Examples
@@ -104,16 +69,378 @@ apis:
     url: examples/orderco-content-industries.json
   - type: Examples
     url: examples/orderco-content-customer-stories.json
-  - type: AgentSkill
-    url: skills/orderco-customer-story-research.md
-  - type: AgentSkill
-    url: skills/orderco-procurement-knowledge-retrieval.md
+- aid: orderco:orderco-content-api
+  name: Order.co Content API
+  description: Posts, pages and media.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Content
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-content-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-customer-stories-api
+  name: Order.co Customer Stories API
+  description: Published Order.co customer case studies.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Customer Stories
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-customer-stories-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-discovery-api
+  name: Order.co Discovery API
+  description: Self-describing route, type and taxonomy introspection.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-discovery-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-faqs-api
+  name: Order.co FA Qs API
+  description: Question-and-answer entries used across the site.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - FAQs
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-faqs-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-incidents-api
+  name: Order.co Incidents API
+  description: Open and historical incidents with their dated updates.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Incidents
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-incidents-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-maintenance-api
+  name: Order.co Maintenance API
+  description: Scheduled maintenance windows.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Maintenance
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-maintenance-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-newsroom-api
+  name: Order.co Newsroom API
+  description: First-party cn/v1 theme namespace.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Newsroom
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-newsroom-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-resources-api
+  name: Order.co Resources API
+  description: Ebooks, webinars, tools and spend insights.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-resources-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-search-api
+  name: Order.co Search API
+  description: Cross-type search.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-search-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-status-api
+  name: Order.co Status API
+  description: The rollup status indicator for the whole page.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Status
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-status-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-taxonomies-api
+  name: Order.co Taxonomies API
+  description: Categories, tags, industries and use cases.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Taxonomies
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-taxonomies-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-testimonials-api
+  name: Order.co Testimonials API
+  description: Customer quotes.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Testimonials
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-testimonials-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-vendor-stories-api
+  name: Order.co Vendor Stories API
+  description: Published Order.co vendor/supplier case studies.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - Vendor Stories
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-vendor-stories-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/orderco-content-overlay.yaml
 - type: Authentication
   url: authentication/orderco-authentication.yml
 - type: Conventions
