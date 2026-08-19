@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Status Maintenance API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Maintenance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all scheduled maintenance windows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/scheduled-maintenances.json"
+          },
+          "docs": "List all scheduled maintenance windows"
+        },
+        {
+          "info": {
+            "name": "List maintenance windows in progress right now",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/scheduled-maintenances/active.json"
+          },
+          "docs": "List maintenance windows in progress right now"
+        },
+        {
+          "info": {
+            "name": "List maintenance windows scheduled for the future",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/scheduled-maintenances/upcoming.json"
+          },
+          "docs": "List maintenance windows scheduled for the future"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

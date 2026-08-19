@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Content Newsroom API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Newsroom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Newsroom press releases (rendered)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/cn/v1/press-releases"
+          },
+          "docs": "First-party custom namespace registered by the Order.co theme. Returns a single `html` string containing the rendered newsroom card markup rather than structured records. The discovery document declares no parameters for this route."
+        },
+        {
+          "info": {
+            "name": "Resource hub index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/cn/v1/resources"
+          },
+          "docs": "First-party custom namespace registered by the Order.co theme. Returns a `resources` array of raw WP post records spanning the blog, ebooks, webinars, tools and customer stories that back www.order.co/resources/. The response was 8.9 MB at capture time and the discovery document declares no parameters, so there is no server-side paging on this route."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,174 @@
+{
+  "item": [
+    {
+      "id": "4614f6c4-76dd-418d-9756-62dceba62902",
+      "name": "Incidents",
+      "description": {
+        "content": "Open and historical incidents with their dated updates.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7481148f-6ee6-4cb7-b796-0347c08d8455",
+          "name": "List all incidents",
+          "request": {
+            "name": "List all incidents",
+            "description": {
+              "content": "Every incident on the page, most recent first, each with its full incident_updates history. One record existed at capture time and it was the Statuspage default sample.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c7fed95-8153-4171-93e5-468d8133d97d",
+              "name": "Incidents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-incidents.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe84e9b4-8c96-4dc0-a2c1-ab22296cf77b",
+          "name": "List currently unresolved incidents",
+          "request": {
+            "name": "List currently unresolved incidents",
+            "description": {
+              "content": "Only incidents that are not yet resolved. Empty array at capture time. This is the endpoint to poll for an active-outage check.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "incidents",
+                "unresolved.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29b38049-7537-40fc-8aa7-cf27877da44f",
+              "name": "Unresolved incidents",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "incidents",
+                    "unresolved.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-incidents-unresolved.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://status.order.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c4af860-97d4-42c9-98e1-b117c06e6792",
+    "name": "Order.co Status Incidents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co publishes a public status page at https://status.order.co/, hosted on Atlassian Statuspage (page id ckzwmwkw4x3f). That page exposes the standard Statuspage v2 JSON API anonymously, and Order.co itself serves the endpoint reference at https://status.order.co/api. It is the only first-party, self-serve, machine-readable *operational* API Order.co publishes: current platform status, the component list, open and historical incidents, and scheduled maintenance windows. Every operation is a GET, requires no authentication, and returns JSON.\n\nThis document is GENERATED by API Evangelist from the endpoint reference Order.co serves at https://status.order.co/api and from live responses fetched on 2026-08-04 (saved under examples/). All eight paths returned HTTP 200 anonymously on that date. Response schemas describe the fields actually observed in those live responses. Nothing is invented.\n\nNote the scope. This is the status API. It is not the Order.co procurement, accounts-payable or spend-management API — Order.co markets API connectivity to QuickBooks Online, NetSuite, Sage Intacct and Workday, and issues vendor API/EDI credentials during vendor onboarding, but publishes no developer portal, no reference and no machine-readable spec for any of it.\n\nA caveat a reader should have: at capture time the only incident this page had ever published was the Statuspage default sample record, \"This is an example incident\" (id yn6q124l9xx6, created 2025-03-20). The page has one component, \"Order.co Application (app.order.co)\".\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}

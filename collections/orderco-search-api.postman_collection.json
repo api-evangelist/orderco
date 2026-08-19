@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "f0267c47-b51e-4ce6-8d8a-dc1381ab14f0",
+      "name": "Search",
+      "description": {
+        "content": "Cross-type search.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fde8f6fe-1255-4e3a-8f47-66675d3e7cd5",
+          "name": "Search across published content",
+          "request": {
+            "name": "Search across published content",
+            "description": {
+              "content": "Cross-type search returning id, title, url, type and subtype. 306 results for `search=procurement` at capture time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "post",
+                  "description": "Limit results to items of an object type."
+                },
+                {
+                  "disabled": false,
+                  "key": "subtype",
+                  "value": "any",
+                  "description": "Limit results to items of one or more object subtypes."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36db8b83-1605-4893-8059-e6215f154764",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "post"
+                    },
+                    {
+                      "key": "subtype",
+                      "value": "any"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.order.co/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "47bf4f15-0db8-4ca7-940e-524c839638d0",
+    "name": "Order.co Content Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co runs www.order.co on WordPress and leaves the WordPress REST API open for anonymous reads. It is not the Order.co procurement API — that surface is customer- and vendor-gated and has no public documentation — but it is a real, first-party, self-describing machine-readable API, and it carries content an agent actually wants: 271 blog posts, 47 pages, 36 customer stories, 6 vendor stories, 21 ebooks, 10 webinars, 18 tools, 2 spend insights, 873 FAQ entries and 142 testimonials, indexed by the first-party `industry` and `use_case` taxonomies.\n\nThis document is GENERATED by API Evangelist from the site's own discovery document at https://www.order.co/wp-json/ (saved verbatim as examples/orderco-content-discovery.json) and from live anonymous probes on 2026-08-04. Every path, parameter, enum and default here is read out of that discovery document; nothing is invented. Only routes that were verified to return HTTP 200 anonymously are included — write routes and the administrative namespaces (redirection/v1, post-smtp, psd/v1, leadin/v1, wp-abilities/v1, wp-site-health/v1, wp/v2/users, wp/v2/settings) are deliberately excluded because they return 401 rest_forbidden to the public.\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "item": [
+    {
+      "id": "85db15e1-a3d9-4d23-b5bc-a60ae99d5d97",
+      "name": "Discovery",
+      "description": {
+        "content": "Self-describing route, type and taxonomy introspection.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4931cf79-10c1-412c-85ae-7fd1404f2bfd",
+          "name": "API discovery document",
+          "request": {
+            "name": "API discovery document",
+            "description": {
+              "content": "The WordPress REST API index for www.order.co: site name, description, url, home, gmt_offset, timezone_string, namespaces, authentication block and the full machine-readable route table with per-parameter schemas. This document is the source this OpenAPI was generated from.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0af29d9e-c155-42cf-a4e1-1ad0d153545e",
+              "name": "Discovery document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2a1f3a9-f70a-4c0e-880e-127ca4158df1",
+          "name": "List registered content types",
+          "request": {
+            "name": "List registered content types",
+            "description": {
+              "content": "Returns every registered post type with its rest_base, labels, supported taxonomies and field schema — including the Order.co custom types customer_story, vendor_story, ebook, webinar, tool, spend_insight, faqs and testimonials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c9b9075-72d0-40fa-bdab-ab3f86c7878d",
+              "name": "Content types",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdf7cb67-d4fb-4284-bb69-4fe0bf6a33d1",
+          "name": "List registered taxonomies",
+          "request": {
+            "name": "List registered taxonomies",
+            "description": {
+              "content": "Returns every registered taxonomy with its rest_base and the post types it applies to — including the Order.co custom taxonomies `industry` and `use_case`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "taxonomies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Limit results to taxonomies associated with a specific post type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "206acc01-ee2a-4025-ba07-3ce35affc825",
+              "name": "Taxonomies",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "taxonomies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c53130ab-9224-4b07-88b0-3efd1592d69c",
+          "name": "List post statuses",
+          "request": {
+            "name": "List post statuses",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccb4c049-f16a-49c9-9867-f0d9e94f7bc3",
+              "name": "Post statuses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.order.co/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f8151c23-7d7d-4024-8289-002bc06abe95",
+    "name": "Order.co Content Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co runs www.order.co on WordPress and leaves the WordPress REST API open for anonymous reads. It is not the Order.co procurement API — that surface is customer- and vendor-gated and has no public documentation — but it is a real, first-party, self-describing machine-readable API, and it carries content an agent actually wants: 271 blog posts, 47 pages, 36 customer stories, 6 vendor stories, 21 ebooks, 10 webinars, 18 tools, 2 spend insights, 873 FAQ entries and 142 testimonials, indexed by the first-party `industry` and `use_case` taxonomies.\n\nThis document is GENERATED by API Evangelist from the site's own discovery document at https://www.order.co/wp-json/ (saved verbatim as examples/orderco-content-discovery.json) and from live anonymous probes on 2026-08-04. Every path, parameter, enum and default here is read out of that discovery document; nothing is invented. Only routes that were verified to return HTTP 200 anonymously are included — write routes and the administrative namespaces (redirection/v1, post-smtp, psd/v1, leadin/v1, wp-abilities/v1, wp-site-health/v1, wp/v2/users, wp/v2/settings) are deliberately excluded because they return 401 rest_forbidden to the public.\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Content Discovery API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "API discovery document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/"
+          },
+          "docs": "The WordPress REST API index for www.order.co: site name, description, url, home, gmt_offset, timezone_string, namespaces, authentication block and the full machine-readable route table with per-parameter schemas. This document is the source this OpenAPI was generated from."
+        },
+        {
+          "info": {
+            "name": "List registered content types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/wp/v2/types",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              }
+            ]
+          },
+          "docs": "Returns every registered post type with its rest_base, labels, supported taxonomies and field schema — including the Order.co custom types customer_story, vendor_story, ebook, webinar, tool, spend_insight, faqs and testimonials."
+        },
+        {
+          "info": {
+            "name": "List registered taxonomies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/wp/v2/taxonomies",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to taxonomies associated with a specific post type."
+              }
+            ]
+          },
+          "docs": "Returns every registered taxonomy with its rest_base and the post types it applies to — including the Order.co custom taxonomies `industry` and `use_case`."
+        },
+        {
+          "info": {
+            "name": "List post statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.order.co/wp-json/wp/v2/statuses",
+            "params": [
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in response."
+              }
+            ]
+          },
+          "docs": "List post statuses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

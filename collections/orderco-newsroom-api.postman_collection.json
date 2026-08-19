@@ -1,0 +1,180 @@
+{
+  "item": [
+    {
+      "id": "6d8bc45a-11ea-49d4-b0e2-9d2ef61f5d90",
+      "name": "Newsroom",
+      "description": {
+        "content": "First-party cn/v1 theme namespace.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46a653b3-2d2b-4c22-8541-57d867377ad7",
+          "name": "Newsroom press releases (rendered)",
+          "request": {
+            "name": "Newsroom press releases (rendered)",
+            "description": {
+              "content": "First-party custom namespace registered by the Order.co theme. Returns a single `html` string containing the rendered newsroom card markup rather than structured records. The discovery document declares no parameters for this route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cn",
+                "v1",
+                "press-releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7b4fb75-94c6-4047-a266-81795f226397",
+              "name": "Rendered press-release markup",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cn",
+                    "v1",
+                    "press-releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"html\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5903f013-f759-4c04-a931-21c4bd0599f8",
+          "name": "Resource hub index",
+          "request": {
+            "name": "Resource hub index",
+            "description": {
+              "content": "First-party custom namespace registered by the Order.co theme. Returns a `resources` array of raw WP post records spanning the blog, ebooks, webinars, tools and customer stories that back www.order.co/resources/. The response was 8.9 MB at capture time and the discovery document declares no parameters, so there is no server-side paging on this route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cn",
+                "v1",
+                "resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92039f72-fdad-4f4f-8658-7fe759944d03",
+              "name": "Resource records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cn",
+                    "v1",
+                    "resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.order.co/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f6b53df6-bcf9-4f88-b451-cc3d0d2fcfc0",
+    "name": "Order.co Content Newsroom API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co runs www.order.co on WordPress and leaves the WordPress REST API open for anonymous reads. It is not the Order.co procurement API — that surface is customer- and vendor-gated and has no public documentation — but it is a real, first-party, self-describing machine-readable API, and it carries content an agent actually wants: 271 blog posts, 47 pages, 36 customer stories, 6 vendor stories, 21 ebooks, 10 webinars, 18 tools, 2 spend insights, 873 FAQ entries and 142 testimonials, indexed by the first-party `industry` and `use_case` taxonomies.\n\nThis document is GENERATED by API Evangelist from the site's own discovery document at https://www.order.co/wp-json/ (saved verbatim as examples/orderco-content-discovery.json) and from live anonymous probes on 2026-08-04. Every path, parameter, enum and default here is read out of that discovery document; nothing is invented. Only routes that were verified to return HTTP 200 anonymously are included — write routes and the administrative namespaces (redirection/v1, post-smtp, psd/v1, leadin/v1, wp-abilities/v1, wp-site-health/v1, wp/v2/users, wp/v2/settings) are deliberately excluded because they return 401 rest_forbidden to the public.\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}

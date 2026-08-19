@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Status Components API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Components",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reported components",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/components.json"
+          },
+          "docs": "Every component Order.co reports health for. One component was published at capture time: \"Order.co Application (app.order.co)\" (id 729hctp265l8, created 2025-03-24)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

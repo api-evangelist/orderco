@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "72935772-7f4e-4445-93df-62a9916003fe",
+      "name": "Maintenance",
+      "description": {
+        "content": "Scheduled maintenance windows.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e5d871cd-4dc3-449e-8144-59e09e6d04d7",
+          "name": "List all scheduled maintenance windows",
+          "request": {
+            "name": "List all scheduled maintenance windows",
+            "description": {},
+            "url": {
+              "path": [
+                "scheduled-maintenances.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "178bfb27-346e-4497-a1c5-8e619cb421a5",
+              "name": "Scheduled maintenances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scheduled-maintenances.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-scheduled-maintenances.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5224d09-2d34-457b-b845-cabae9a69fc5",
+          "name": "List maintenance windows in progress right now",
+          "request": {
+            "name": "List maintenance windows in progress right now",
+            "description": {},
+            "url": {
+              "path": [
+                "scheduled-maintenances",
+                "active.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e260cec-e18c-4d7c-8f6b-aa040510d3fc",
+              "name": "Active scheduled maintenances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scheduled-maintenances",
+                    "active.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-scheduled-maintenances-active.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fae0e54d-ccc5-4159-8ef8-46970e8c3838",
+          "name": "List maintenance windows scheduled for the future",
+          "request": {
+            "name": "List maintenance windows scheduled for the future",
+            "description": {},
+            "url": {
+              "path": [
+                "scheduled-maintenances",
+                "upcoming.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5429c91-fd86-46ba-a535-31f9488cc375",
+              "name": "Upcoming scheduled maintenances",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scheduled-maintenances",
+                    "upcoming.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-scheduled-maintenances-upcoming.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://status.order.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab90e54d-8304-4b75-8f97-c96a8bd892c4",
+    "name": "Order.co Status Maintenance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co publishes a public status page at https://status.order.co/, hosted on Atlassian Statuspage (page id ckzwmwkw4x3f). That page exposes the standard Statuspage v2 JSON API anonymously, and Order.co itself serves the endpoint reference at https://status.order.co/api. It is the only first-party, self-serve, machine-readable *operational* API Order.co publishes: current platform status, the component list, open and historical incidents, and scheduled maintenance windows. Every operation is a GET, requires no authentication, and returns JSON.\n\nThis document is GENERATED by API Evangelist from the endpoint reference Order.co serves at https://status.order.co/api and from live responses fetched on 2026-08-04 (saved under examples/). All eight paths returned HTTP 200 anonymously on that date. Response schemas describe the fields actually observed in those live responses. Nothing is invented.\n\nNote the scope. This is the status API. It is not the Order.co procurement, accounts-payable or spend-management API — Order.co markets API connectivity to QuickBooks Online, NetSuite, Sage Intacct and Workday, and issues vendor API/EDI credentials during vendor onboarding, but publishes no developer portal, no reference and no machine-readable spec for any of it.\n\nA caveat a reader should have: at capture time the only incident this page had ever published was the Statuspage default sample record, \"This is an example incident\" (id yn6q124l9xx6, created 2025-03-20). The page has one component, \"Order.co Application (app.order.co)\".\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}

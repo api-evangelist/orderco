@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Status Incidents API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/incidents.json"
+          },
+          "docs": "Every incident on the page, most recent first, each with its full incident_updates history. One record existed at capture time and it was the Statuspage default sample."
+        },
+        {
+          "info": {
+            "name": "List currently unresolved incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/incidents/unresolved.json"
+          },
+          "docs": "Only incidents that are not yet resolved. Empty array at capture time. This is the endpoint to poll for an active-outage check."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

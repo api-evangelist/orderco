@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Order.co Status API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the full status summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/summary.json"
+          },
+          "docs": "A single call returning the page, every component, unresolved incidents, active and upcoming scheduled maintenances, and the status rollup. This is the endpoint to poll if you only want to make one request."
+        },
+        {
+          "info": {
+            "name": "Get the rollup status indicator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://status.order.co/api/v2/status.json"
+          },
+          "docs": "The smallest response the API serves - the page identity plus an indicator/description pair. Observed value on 2026-08-04 was indicator \"none\", description \"All Systems Operational\"."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

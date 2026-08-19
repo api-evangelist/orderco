@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "f472758a-2ced-462b-9ef3-7fa1063af249",
+      "name": "Status",
+      "description": {
+        "content": "The rollup status indicator for the whole page.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84079a53-0bef-46c8-946d-1186feb1a2f0",
+          "name": "Get the full status summary",
+          "request": {
+            "name": "Get the full status summary",
+            "description": {
+              "content": "A single call returning the page, every component, unresolved incidents, active and upcoming scheduled maintenances, and the status rollup. This is the endpoint to poll if you only want to make one request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "summary.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6d854e87-aaee-4e4b-96e2-b4b8ecc805ba",
+              "name": "Full summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "summary.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summary\": \"Live response captured 2026-08-04\",\n  \"externalValue\": \"examples/orderco-status-summary.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f056fe8-2a22-4f83-8d29-cbe529e60955",
+          "name": "Get the rollup status indicator",
+          "request": {
+            "name": "Get the rollup status indicator",
+            "description": {
+              "content": "The smallest response the API serves - the page identity plus an indicator/description pair. Observed value on 2026-08-04 was indicator \"none\", description \"All Systems Operational\".",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "status.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "606c5d27-0d07-406c-83f7-5f0ed18e9fcf",
+              "name": "Rollup status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "status.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalValue\": \"examples/orderco-status-status.json\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://status.order.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0bdc3a5b-8b8a-419d-8e91-4cc3d021cfc9",
+    "name": "Order.co Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Order.co publishes a public status page at https://status.order.co/, hosted on Atlassian Statuspage (page id ckzwmwkw4x3f). That page exposes the standard Statuspage v2 JSON API anonymously, and Order.co itself serves the endpoint reference at https://status.order.co/api. It is the only first-party, self-serve, machine-readable *operational* API Order.co publishes: current platform status, the component list, open and historical incidents, and scheduled maintenance windows. Every operation is a GET, requires no authentication, and returns JSON.\n\nThis document is GENERATED by API Evangelist from the endpoint reference Order.co serves at https://status.order.co/api and from live responses fetched on 2026-08-04 (saved under examples/). All eight paths returned HTTP 200 anonymously on that date. Response schemas describe the fields actually observed in those live responses. Nothing is invented.\n\nNote the scope. This is the status API. It is not the Order.co procurement, accounts-payable or spend-management API — Order.co markets API connectivity to QuickBooks Online, NetSuite, Sage Intacct and Workday, and issues vendor API/EDI credentials during vendor onboarding, but publishes no developer portal, no reference and no machine-readable spec for any of it.\n\nA caveat a reader should have: at capture time the only incident this page had ever published was the Statuspage default sample record, \"This is an example incident\" (id yn6q124l9xx6, created 2025-03-20). The page has one component, \"Order.co Application (app.order.co)\".\n\nContact Support:\n Name: Order.co",
+      "type": "text/plain"
+    }
+  }
+}
