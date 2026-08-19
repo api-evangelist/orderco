@@ -26,7 +26,7 @@ x-enrichment:
   artifacts_added: 35
   pass: local-v1
 image: https://www.order.co/wp-content/themes/order/assets/img/logos/order.svg
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
