@@ -355,6 +355,8 @@ apis:
   humanURL: https://status.order.co/
   baseURL: https://status.order.co/api/v2
   tags:
+  - taxonomies
+  tags_raw:
   - Taxonomies
   properties:
   - type: OpenAPI
