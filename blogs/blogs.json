@@ -2,20 +2,34 @@
   "repo": "orderco",
   "feeds": [
     {
+      "source": "https://www.order.co/feed/",
+      "feed_url": "https://www.order.co/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://www.order.co/blog/feed/",
+      "feed_url": "https://www.order.co/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://www.order.co/",
       "feed_url": "https://www.order.co/feed/",
       "title": "",
-      "saved": 7,
+      "saved": 0,
       "method": "discovered"
     },
     {
       "source": "https://www.order.co/blog/",
       "feed_url": "https://www.order.co/blog/feed/",
       "title": "",
-      "saved": 9,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 19,
-  "fetched": "2026-08-15T12:11:08Z"
+  "post_count": 21,
+  "fetched": "2026-08-22T20:20:02Z"
 }
