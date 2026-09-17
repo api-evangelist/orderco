@@ -178,34 +178,6 @@ apis:
     url: examples/orderco-content-industries.json
   - type: Examples
     url: examples/orderco-content-customer-stories.json
-- aid: orderco:orderco-faqs-api
-  name: Order.co FA Qs API
-  description: Question-and-answer entries used across the site.
-  humanURL: https://status.order.co/
-  baseURL: https://status.order.co/api/v2
-  tags:
-  - FAQs
-  properties:
-  - type: OpenAPI
-    url: openapi/orderco-faqs-api-openapi.yml
-  - type: APIReference
-    url: https://status.order.co/api
-  - type: StatusPage
-    url: https://status.order.co/
-  - type: Examples
-    url: examples/orderco-status-summary.json
-  - type: Examples
-    url: examples/orderco-status-components.json
-  - type: Examples
-    url: examples/orderco-status-incidents.json
-  - type: Examples
-    url: examples/orderco-content-discovery.json
-  - type: Examples
-    url: examples/orderco-content-types.json
-  - type: Examples
-    url: examples/orderco-content-industries.json
-  - type: Examples
-    url: examples/orderco-content-customer-stories.json
 - aid: orderco:orderco-incidents-api
   name: Order.co Incidents API
   description: Open and historical incidents with their dated updates.
@@ -442,6 +414,34 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/orderco-vendor-stories-api-openapi.yml
+  - type: APIReference
+    url: https://status.order.co/api
+  - type: StatusPage
+    url: https://status.order.co/
+  - type: Examples
+    url: examples/orderco-status-summary.json
+  - type: Examples
+    url: examples/orderco-status-components.json
+  - type: Examples
+    url: examples/orderco-status-incidents.json
+  - type: Examples
+    url: examples/orderco-content-discovery.json
+  - type: Examples
+    url: examples/orderco-content-types.json
+  - type: Examples
+    url: examples/orderco-content-industries.json
+  - type: Examples
+    url: examples/orderco-content-customer-stories.json
+- aid: orderco:orderco-faqs-api
+  name: Order.co FA Qs API
+  description: Question-and-answer entries used across the site.
+  humanURL: https://status.order.co/
+  baseURL: https://status.order.co/api/v2
+  tags:
+  - FAQs
+  properties:
+  - type: OpenAPI
+    url: openapi/orderco-faqs-api-openapi.yml
   - type: APIReference
     url: https://status.order.co/api
   - type: StatusPage
