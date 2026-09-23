@@ -1,56 +1,51 @@
 {
   "provider": "orderco",
   "sources": [
-    "orderco-components-api-openapi.yml",
-    "orderco-content-api-openapi.yml",
-    "orderco-customer-stories-api-openapi.yml",
-    "orderco-discovery-api-openapi.yml",
-    "orderco-faqs-api-openapi.yml",
-    "orderco-incidents-api-openapi.yml",
-    "orderco-maintenance-api-openapi.yml",
-    "orderco-newsroom-api-openapi.yml",
-    "orderco-resources-api-openapi.yml",
-    "orderco-search-api-openapi.yml",
-    "orderco-status-api-openapi.yml",
-    "orderco-taxonomies-api-openapi.yml",
-    "orderco-testimonials-api-openapi.yml",
-    "orderco-vendor-stories-api-openapi.yml"
+    "_original/orderco-content-openapi.yml",
+    "_original/orderco-status-openapi.yml"
   ],
   "outputs": [
-    "orderco-components-api-openapi.yml",
     "orderco-content-api-openapi.yml",
     "orderco-customer-stories-api-openapi.yml",
     "orderco-discovery-api-openapi.yml",
     "orderco-faqs-api-openapi.yml",
-    "orderco-incidents-api-openapi.yml",
-    "orderco-maintenance-api-openapi.yml",
     "orderco-newsroom-api-openapi.yml",
     "orderco-resources-api-openapi.yml",
     "orderco-search-api-openapi.yml",
-    "orderco-status-api-openapi.yml",
     "orderco-taxonomies-api-openapi.yml",
     "orderco-testimonials-api-openapi.yml",
-    "orderco-vendor-stories-api-openapi.yml"
+    "orderco-vendor-stories-api-openapi.yml",
+    "orderco-components-api-openapi.yml",
+    "orderco-incidents-api-openapi.yml",
+    "orderco-maintenance-api-openapi.yml",
+    "orderco-status-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "orderco-components-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-content-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-customer-stories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-discovery-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-faqs-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-incidents-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-maintenance-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-newsroom-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-resources-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-search-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-status-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-taxonomies-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-testimonials-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "orderco-vendor-stories-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "orderco-content-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "orderco-status-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: orderco-fa-qs-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 14 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "orderco-components-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-customer-stories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-fa-qs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-incidents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-maintenance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-newsroom-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-taxonomies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-testimonials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "orderco-vendor-stories-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
