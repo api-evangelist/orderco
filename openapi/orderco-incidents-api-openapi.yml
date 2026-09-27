@@ -71,54 +71,6 @@ paths:
                   externalValue: examples/orderco-status-incidents-unresolved.json
 components:
   schemas:
-    IncidentUpdate:
-      type: object
-      description: One dated update posted against an incident.
-      properties:
-        id:
-          type: string
-        status:
-          type: string
-          enum:
-          - investigating
-          - identified
-          - monitoring
-          - resolved
-          - postmortem
-        body:
-          type: string
-        incident_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        display_at:
-          type: string
-          format: date-time
-        affected_components:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-        deliver_notifications:
-          type: boolean
-        custom_tweet:
-          type:
-          - string
-          - 'null'
-        tweet_id:
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - status
-      - body
-      - incident_id
     Incident:
       type: object
       description: An incident and its full update history.
@@ -185,6 +137,54 @@ components:
       - status
       - impact
       - page_id
+    IncidentUpdate:
+      type: object
+      description: One dated update posted against an incident.
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+          - investigating
+          - identified
+          - monitoring
+          - resolved
+          - postmortem
+        body:
+          type: string
+        incident_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        display_at:
+          type: string
+          format: date-time
+        affected_components:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+        deliver_notifications:
+          type: boolean
+        custom_tweet:
+          type:
+          - string
+          - 'null'
+        tweet_id:
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - status
+      - body
+      - incident_id
     Component:
       type: object
       description: One reported service. Fields as observed in the live components response.

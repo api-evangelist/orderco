@@ -1,10 +1,7 @@
 {
   "provider": "orderco",
   "sources": [
-    "_original/orderco-content-openapi.yml",
-    "_original/orderco-status-openapi.yml"
-  ],
-  "outputs": [
+    "_original/orderco-status-openapi.yml",
     "orderco-content-api-openapi.yml",
     "orderco-customer-stories-api-openapi.yml",
     "orderco-discovery-api-openapi.yml",
@@ -14,38 +11,48 @@
     "orderco-search-api-openapi.yml",
     "orderco-taxonomies-api-openapi.yml",
     "orderco-testimonials-api-openapi.yml",
-    "orderco-vendor-stories-api-openapi.yml",
+    "orderco-vendor-stories-api-openapi.yml"
+  ],
+  "outputs": [
     "orderco-components-api-openapi.yml",
     "orderco-incidents-api-openapi.yml",
     "orderco-maintenance-api-openapi.yml",
-    "orderco-status-api-openapi.yml"
+    "orderco-status-api-openapi.yml",
+    "orderco-content-api-openapi.yml",
+    "orderco-customer-stories-api-openapi.yml",
+    "orderco-discovery-api-openapi.yml",
+    "orderco-faqs-api-openapi.yml",
+    "orderco-newsroom-api-openapi.yml",
+    "orderco-resources-api-openapi.yml",
+    "orderco-search-api-openapi.yml",
+    "orderco-taxonomies-api-openapi.yml",
+    "orderco-testimonials-api-openapi.yml",
+    "orderco-vendor-stories-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    "orderco-content-api-openapi.yml: previously refined output kept for 6 operation(s) no archived document covers (e.g. /wp/v2/media get, /wp/v2/media/{id} get, /wp/v2/pages get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-customer-stories-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/customer_story get, /wp/v2/customer_story/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-discovery-api-openapi.yml: previously refined output kept for 4 operation(s) no archived document covers (e.g. / get, /wp/v2/statuses get, /wp/v2/taxonomies get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-faqs-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/faqs get, /wp/v2/faqs/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-newsroom-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /cn/v1/press-releases get, /cn/v1/resources get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-resources-api-openapi.yml: previously refined output kept for 8 operation(s) no archived document covers (e.g. /wp/v2/ebook get, /wp/v2/ebook/{id} get, /wp/v2/spend_insight get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-search-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /wp/v2/search get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-taxonomies-api-openapi.yml: previously refined output kept for 8 operation(s) no archived document covers (e.g. /wp/v2/categories get, /wp/v2/categories/{id} get, /wp/v2/industry get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-testimonials-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/testimonials get, /wp/v2/testimonials/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "orderco-vendor-stories-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/vendor_story get, /wp/v2/vendor_story/{id} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
-    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "orderco-content-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "orderco-content-openapi.yml: WordPress site /wp-json spec, not split (roadmap#484)",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "orderco-status-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "superseded outputs removed: orderco-fa-qs-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 14 total)"
+    "apis.yml register: written (+1 apis, 5 total)"
   ],
   "skipped": [
     "orderco-components-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-customer-stories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-fa-qs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "orderco-incidents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "orderco-maintenance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-newsroom-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-status-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-taxonomies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-testimonials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "orderco-vendor-stories-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "orderco-status-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

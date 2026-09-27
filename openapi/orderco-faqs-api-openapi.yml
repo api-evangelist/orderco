@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Order.co Content FA Qs API
+  title: Order.co Content FA Qs FAQs API
   version: wp/v2
   summary: The public, anonymous WordPress REST API behind www.order.co.
   description: Order.co runs www.order.co on WordPress and leaves the WordPress REST API open for anonymous reads.
@@ -267,6 +267,31 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    InvalidParam:
+      description: One or more query parameters failed validation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: rest_invalid_param
+            message: 'Invalid parameter(s): per_page'
+            data:
+              status: 400
+              params:
+                per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
+    NotFound:
+      description: The requested object does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: rest_post_invalid_id
+            message: Invalid post ID.
+            data:
+              status: 404
   schemas:
     Error:
       type: object
@@ -292,28 +317,3 @@ components:
       - code
       - message
       - data
-  responses:
-    NotFound:
-      description: The requested object does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            code: rest_post_invalid_id
-            message: Invalid post ID.
-            data:
-              status: 404
-    InvalidParam:
-      description: One or more query parameters failed validation.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            code: rest_invalid_param
-            message: 'Invalid parameter(s): per_page'
-            data:
-              status: 400
-              params:
-                per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
