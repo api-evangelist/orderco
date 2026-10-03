@@ -71,72 +71,6 @@ paths:
                   externalValue: examples/orderco-status-incidents-unresolved.json
 components:
   schemas:
-    Incident:
-      type: object
-      description: An incident and its full update history.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        status:
-          type: string
-          enum:
-          - investigating
-          - identified
-          - monitoring
-          - resolved
-          - postmortem
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        monitoring_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        resolved_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        impact:
-          type: string
-          enum:
-          - none
-          - minor
-          - major
-          - critical
-        shortlink:
-          type: string
-          format: uri
-          description: stspg.io short URL for the incident.
-        started_at:
-          type: string
-          format: date-time
-        page_id:
-          type: string
-        incident_updates:
-          type: array
-          items:
-            $ref: '#/components/schemas/IncidentUpdate'
-        components:
-          type: array
-          items:
-            $ref: '#/components/schemas/Component'
-        reminder_intervals:
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - name
-      - status
-      - impact
-      - page_id
     IncidentUpdate:
       type: object
       description: One dated update posted against an incident.
@@ -235,6 +169,72 @@ components:
       - id
       - name
       - status
+      - page_id
+    Incident:
+      type: object
+      description: An incident and its full update history.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - investigating
+          - identified
+          - monitoring
+          - resolved
+          - postmortem
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        monitoring_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        resolved_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        impact:
+          type: string
+          enum:
+          - none
+          - minor
+          - major
+          - critical
+        shortlink:
+          type: string
+          format: uri
+          description: stspg.io short URL for the incident.
+        started_at:
+          type: string
+          format: date-time
+        page_id:
+          type: string
+        incident_updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/IncidentUpdate'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+        reminder_intervals:
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - name
+      - status
+      - impact
       - page_id
     Page:
       type: object

@@ -936,6 +936,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
+    NotFound:
+      description: The requested object does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: rest_post_invalid_id
+            message: Invalid post ID.
+            data:
+              status: 404
     InvalidParam:
       description: One or more query parameters failed validation.
       content:
@@ -949,17 +960,6 @@ components:
               status: 400
               params:
                 per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
-    NotFound:
-      description: The requested object does not exist.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            code: rest_post_invalid_id
-            message: Invalid post ID.
-            data:
-              status: 404
   schemas:
     Error:
       type: object

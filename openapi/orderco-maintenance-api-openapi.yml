@@ -122,54 +122,6 @@ components:
       - name
       - status
       - page_id
-    IncidentUpdate:
-      type: object
-      description: One dated update posted against an incident.
-      properties:
-        id:
-          type: string
-        status:
-          type: string
-          enum:
-          - investigating
-          - identified
-          - monitoring
-          - resolved
-          - postmortem
-        body:
-          type: string
-        incident_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        display_at:
-          type: string
-          format: date-time
-        affected_components:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-        deliver_notifications:
-          type: boolean
-        custom_tweet:
-          type:
-          - string
-          - 'null'
-        tweet_id:
-          type:
-          - string
-          - 'null'
-      required:
-      - id
-      - status
-      - body
-      - incident_id
     ScheduledMaintenance:
       type: object
       description: A planned maintenance window. Order.co had published none at capture time, so this schema is modelled on the Statuspage maintenance object as documented on status.order.co/api and on the shared incident fields observed live; its optional fields are marked as such rather than asserted.
@@ -231,6 +183,54 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ScheduledMaintenance'
+    IncidentUpdate:
+      type: object
+      description: One dated update posted against an incident.
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+          - investigating
+          - identified
+          - monitoring
+          - resolved
+          - postmortem
+        body:
+          type: string
+        incident_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        display_at:
+          type: string
+          format: date-time
+        affected_components:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+        deliver_notifications:
+          type: boolean
+        custom_tweet:
+          type:
+          - string
+          - 'null'
+        tweet_id:
+          type:
+          - string
+          - 'null'
+      required:
+      - id
+      - status
+      - body
+      - incident_id
     Page:
       type: object
       description: Identity of the status page itself. Present on every response.
