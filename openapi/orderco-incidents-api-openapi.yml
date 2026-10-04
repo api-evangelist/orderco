@@ -119,57 +119,6 @@ components:
       - status
       - body
       - incident_id
-    Component:
-      type: object
-      description: One reported service. Fields as observed in the live components response.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        status:
-          type: string
-          description: Component health. Observed value "operational".
-          enum:
-          - operational
-          - degraded_performance
-          - partial_outage
-          - major_outage
-          - under_maintenance
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        position:
-          type: integer
-        description:
-          type:
-          - string
-          - 'null'
-        showcase:
-          type: boolean
-        start_date:
-          type:
-          - string
-          - 'null'
-          format: date
-        group_id:
-          type:
-          - string
-          - 'null'
-        page_id:
-          type: string
-        group:
-          type: boolean
-        only_show_if_degraded:
-          type: boolean
-      required:
-      - id
-      - name
-      - status
-      - page_id
     Incident:
       type: object
       description: An incident and its full update history.
@@ -260,3 +209,54 @@ components:
       - name
       - url
       - updated_at
+    Component:
+      type: object
+      description: One reported service. Fields as observed in the live components response.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          description: Component health. Observed value "operational".
+          enum:
+          - operational
+          - degraded_performance
+          - partial_outage
+          - major_outage
+          - under_maintenance
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        position:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        showcase:
+          type: boolean
+        start_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        group_id:
+          type:
+          - string
+          - 'null'
+        page_id:
+          type: string
+        group:
+          type: boolean
+        only_show_if_degraded:
+          type: boolean
+      required:
+      - id
+      - name
+      - status
+      - page_id

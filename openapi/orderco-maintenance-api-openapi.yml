@@ -71,118 +71,6 @@ paths:
                   externalValue: examples/orderco-status-scheduled-maintenances-upcoming.json
 components:
   schemas:
-    Component:
-      type: object
-      description: One reported service. Fields as observed in the live components response.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        status:
-          type: string
-          description: Component health. Observed value "operational".
-          enum:
-          - operational
-          - degraded_performance
-          - partial_outage
-          - major_outage
-          - under_maintenance
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        position:
-          type: integer
-        description:
-          type:
-          - string
-          - 'null'
-        showcase:
-          type: boolean
-        start_date:
-          type:
-          - string
-          - 'null'
-          format: date
-        group_id:
-          type:
-          - string
-          - 'null'
-        page_id:
-          type: string
-        group:
-          type: boolean
-        only_show_if_degraded:
-          type: boolean
-      required:
-      - id
-      - name
-      - status
-      - page_id
-    ScheduledMaintenance:
-      type: object
-      description: A planned maintenance window. Order.co had published none at capture time, so this schema is modelled on the Statuspage maintenance object as documented on status.order.co/api and on the shared incident fields observed live; its optional fields are marked as such rather than asserted.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        status:
-          type: string
-          enum:
-          - scheduled
-          - in_progress
-          - verifying
-          - completed
-        scheduled_for:
-          type: string
-          format: date-time
-        scheduled_until:
-          type: string
-          format: date-time
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        impact:
-          type: string
-          enum:
-          - none
-          - minor
-          - major
-          - critical
-          - maintenance
-        shortlink:
-          type: string
-          format: uri
-        page_id:
-          type: string
-        incident_updates:
-          type: array
-          items:
-            $ref: '#/components/schemas/IncidentUpdate'
-        components:
-          type: array
-          items:
-            $ref: '#/components/schemas/Component'
-      required:
-      - id
-      - name
-      - status
-    ScheduledMaintenanceList:
-      type: object
-      properties:
-        page:
-          $ref: '#/components/schemas/Page'
-        scheduled_maintenances:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScheduledMaintenance'
     IncidentUpdate:
       type: object
       description: One dated update posted against an incident.
@@ -255,3 +143,115 @@ components:
       - name
       - url
       - updated_at
+    ScheduledMaintenance:
+      type: object
+      description: A planned maintenance window. Order.co had published none at capture time, so this schema is modelled on the Statuspage maintenance object as documented on status.order.co/api and on the shared incident fields observed live; its optional fields are marked as such rather than asserted.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          enum:
+          - scheduled
+          - in_progress
+          - verifying
+          - completed
+        scheduled_for:
+          type: string
+          format: date-time
+        scheduled_until:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        impact:
+          type: string
+          enum:
+          - none
+          - minor
+          - major
+          - critical
+          - maintenance
+        shortlink:
+          type: string
+          format: uri
+        page_id:
+          type: string
+        incident_updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/IncidentUpdate'
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/Component'
+      required:
+      - id
+      - name
+      - status
+    Component:
+      type: object
+      description: One reported service. Fields as observed in the live components response.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        status:
+          type: string
+          description: Component health. Observed value "operational".
+          enum:
+          - operational
+          - degraded_performance
+          - partial_outage
+          - major_outage
+          - under_maintenance
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        position:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        showcase:
+          type: boolean
+        start_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        group_id:
+          type:
+          - string
+          - 'null'
+        page_id:
+          type: string
+        group:
+          type: boolean
+        only_show_if_degraded:
+          type: boolean
+      required:
+      - id
+      - name
+      - status
+      - page_id
+    ScheduledMaintenanceList:
+      type: object
+      properties:
+        page:
+          $ref: '#/components/schemas/Page'
+        scheduled_maintenances:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduledMaintenance'
