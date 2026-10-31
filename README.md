@@ -64,5 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Order.co is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/orderco_stock/
+Order.co (founded 2016 in New York as Negotiatus, rebranded to Order.co in 2021) is a procurement and finance-automation platform for mid-market and enterprise buyers: guided purchasing across a managed vendor catalog, purchase-order and approval workflow, accounts- payable automation, spend management and virtual cards, sold into multi-location operators in property management, hospitality, healthcare, retail, fitness, coworking, early childhood education, wellness, technology and nonprofit. The product connects to QuickBooks Online, NetSuite, Sage Intacct and Workday over API, and supports SSO through Okta and Ping Identity. Order.co publishes no developer portal, no API reference and no machine-readable specification for any of that - the procurement API is disclosed only to customers, and vendors receive API or EDI credentials during onboarding. What it does publish anonymously are two real, self-describing surfaces on its own hosts - the WordPress REST API behind www.order.co (blog, customer and vendor stories, ebooks, webinars, tools, 873 FAQ records, and the first-party industry and use-case taxonomies) and the Atlassian Statuspage v2 API on status.order.co - plus an llms.txt and a companion page written for language models.
+
+**Areas:** Company · Procurement · Spend Management · Accounts Payable · Purchasing · Vendor Management · Payments · Virtual Cards · Finance Automation · United States
+
+## Order.co on APIs.io
+
+Everything profiled for Order.co is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/orderco/](https://apis.io/providers/orderco/)** — or go straight to one of the APIs or properties below.
+
+### APIs (5)
+
+- [Order.co Components API](https://apis.io/apis/orderco/orderco-components-api/) — The individual services Order.co reports health for.
+- [Order.co Incidents API](https://apis.io/apis/orderco/orderco-incidents-api/) — Open and historical incidents with their dated updates.
+- [Order.co Maintenance API](https://apis.io/apis/orderco/orderco-maintenance-api/) — Scheduled maintenance windows.
+- [Order.co Status API](https://apis.io/apis/orderco/orderco-status-api/) — The rollup status indicator for the whole page.
+- [Order.co Website (WordPress REST)](https://apis.io/apis/orderco/order-co-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Order.co website at www.order.co: the route index of the site's content management system, catalogued as one…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Examples (11)
+
+Example requests and responses.
+
+- [Orderco Content Discovery](https://apis.io/examples/orderco/orderco-content-discovery/)
+- [Orderco Content Taxonomies](https://apis.io/examples/orderco/orderco-content-taxonomies/)
+- [Orderco Content Types](https://apis.io/examples/orderco/orderco-content-types/)
+- [Orderco Status Components](https://apis.io/examples/orderco/orderco-status-components/)
+- [Orderco Status Incidents](https://apis.io/examples/orderco/orderco-status-incidents/)
+- [Orderco Status Incidents Unresolved](https://apis.io/examples/orderco/orderco-status-incidents-unresolved/)
+- [Orderco Status Scheduled Maintenances](https://apis.io/examples/orderco/orderco-status-scheduled-maintenances/)
+- [Orderco Status Scheduled Maintenances Active](https://apis.io/examples/orderco/orderco-status-scheduled-maintenances-active/)
+- [Orderco Status Scheduled Maintenances Upcoming](https://apis.io/examples/orderco/orderco-status-scheduled-maintenances-upcoming/)
+- [Orderco Status Status](https://apis.io/examples/orderco/orderco-status-status/)
+- [Orderco Status Summary](https://apis.io/examples/orderco/orderco-status-summary/)
+
+#### Collections (14)
+
+Postman and Open Collection request collections.
+
+- [Order.co Status Components API](https://apis.io/collections/orderco/open-orderco-components-api/)
+- [Order.co Content API](https://apis.io/collections/orderco/open-orderco-content-api/)
+- [Order.co Content Customer Stories API](https://apis.io/collections/orderco/open-orderco-customer-stories-api/)
+- [Order.co Content Discovery API](https://apis.io/collections/orderco/open-orderco-discovery-api/)
+- [Order.co Content FA Qs API](https://apis.io/collections/orderco/open-orderco-faqs-api/)
+- [Order.co Status Incidents API](https://apis.io/collections/orderco/open-orderco-incidents-api/)
+- [Order.co Status Maintenance API](https://apis.io/collections/orderco/open-orderco-maintenance-api/)
+- [Order.co Content Newsroom API](https://apis.io/collections/orderco/open-orderco-newsroom-api/)
+- [Order.co Content Resources API](https://apis.io/collections/orderco/open-orderco-resources-api/)
+- [Order.co Content Search API](https://apis.io/collections/orderco/open-orderco-search-api/)
+- [Order.co Status API](https://apis.io/collections/orderco/open-orderco-status-api/)
+- [Order.co Content Taxonomies API](https://apis.io/collections/orderco/open-orderco-taxonomies-api/)
+- [Order.co Content Testimonials API](https://apis.io/collections/orderco/open-orderco-testimonials-api/)
+- [Order.co Content Vendor Stories API](https://apis.io/collections/orderco/open-orderco-vendor-stories-api/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Orderco Content Overlay](https://apis.io/overlays/orderco/orderco-content-overlay/)
+- [Orderco Status Overlay](https://apis.io/overlays/orderco/orderco-status-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Orderco Authentication](https://apis.io/security/orderco/orderco-authentication/)
+- [Orderco Domain Security](https://apis.io/security/orderco/orderco-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.order.co/)
+- [Blog](https://www.order.co/blog/)
+- [Terms of service](https://www.order.co/terms-and-conditions/)
+- [Privacy policy](https://www.order.co/privacy-policy/)
+- [GitHub](https://github.com/Negotiatus)
+- [Status](https://status.order.co/)
+
+## API Evangelist rating
+
+**Kin Score 31.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.2 |
+| Contract quality | 15.8 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 32.7 |
+| Access clarity | 57.1 |
+
+**Agent readiness 28.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 22.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/orderco/](https://apis.io/providers/orderco/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Order.co: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/orderco/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
